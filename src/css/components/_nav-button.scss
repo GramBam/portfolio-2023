@@ -1,0 +1,18 @@
+.nav-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  cursor: pointer;
+  border: none;
+
+  &.red {
+    background-color: #f5544d;
+  }
+  &.yellow {
+    background-color: #fabd2f;
+  }
+  &.green {
+    background-color: #47d043;
+  }
+}
