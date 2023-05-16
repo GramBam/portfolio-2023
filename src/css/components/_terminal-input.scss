@@ -1,0 +1,28 @@
+.prompt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 0;
+  gap: 8px;
+
+  input {
+    border: none;
+    background-color: unset;
+    color: rgb(238, 238, 238);
+    width: 100%;
+    font-size: 16px;
+    font-family: "Fira Code", monospace;
+    font-weight: 500;
+
+    &:focus {
+      border: none;
+      outline: none;
+      box-shadow: none;
+      background-color: unset;
+    }
+  }
+
+  &.success {
+    color: green;
+  }
+}

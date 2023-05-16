@@ -30,5 +30,27 @@
     p {
       padding: 8px 0;
     }
+
+    .code {
+      color: #66c2cd;
+      margin-left: 8px;
+
+      span {
+        margin-left: 16px;
+        color: $white;
+      }
+    }
+
+    .path {
+      color: #f7fca0;
+
+      span {
+        color: #6a77d2;
+      }
+
+      span + span {
+        color: #9ceaf3;
+      }
+    }
   }
 }
