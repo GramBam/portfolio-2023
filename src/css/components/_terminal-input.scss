@@ -22,7 +22,19 @@
     }
   }
 
+  svg {
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
   &.success {
-    color: green;
+    color: #5ad786;
+  }
+
+  &.failure {
+    color: #f78f85;
   }
 }

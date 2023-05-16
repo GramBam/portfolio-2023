@@ -31,11 +31,13 @@ export const pathBlock = (
   </p>
 );
 
-export const promptBlock = (success: boolean) => {
-  return (
-    <div className={`prompt ${success ? "success" : "failure"}`}>
-      <FaChevronRight />
-      <h2>test</h2>
-    </div>
-  );
-};
+export const noCommandBlock = (input: string) => (
+  <p>command not found: {input}</p>
+);
+
+export const promptBlock = (success: boolean, input: string) => (
+  <div className={`prompt ${success ? "success" : "failure"}`}>
+    <FaChevronRight />
+    <h2>{input}</h2>
+  </div>
+);
