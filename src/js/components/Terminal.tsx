@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { cloneElement, useEffect, useState } from "react";
 import Nav from "./Nav";
 import { blocks as outputBlocks } from "../utils/textBlocks";
 import TerminalInput from "./TerminalInput";
@@ -43,7 +43,7 @@ function Terminal() {
     <div className="terminal">
       <Nav />
       <div className="prompt-container">
-        {blocks.map((block) => block)}
+        {blocks.map((block) => cloneElement(block, { key: Math.random() }))}
         {showInput && (
           <TerminalInput submitCallback={onSubmit} blocks={blocks} />
         )}
