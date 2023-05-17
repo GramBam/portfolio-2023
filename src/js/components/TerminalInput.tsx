@@ -1,11 +1,13 @@
-import { ChangeEvent, KeyboardEvent, useState, useRef } from "react";
+import { ChangeEvent, KeyboardEvent, useState, useRef, useEffect } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import useOutsideClick from "../hooks/useOutsideClick";
 
 function TerminalInput({
   submitCallback,
+  blocks,
 }: {
   submitCallback: (input: string) => void;
+  blocks: JSX.Element[];
 }) {
   const [userInput, setUserInput] = useState<string>("");
   const ref = useRef<HTMLInputElement>(null);
@@ -21,6 +23,10 @@ function TerminalInput({
     ref.current?.focus();
   });
 
+  useEffect(() => {
+    ref.current?.scrollIntoView();
+  }, [blocks]);
+
   return (
     <div className="prompt" onKeyDown={handleKeyDown}>
       <FaChevronRight />
@@ -30,7 +36,6 @@ function TerminalInput({
         type="text"
         ref={ref}
         onChange={(e: ChangeEvent<HTMLInputElement>) => {
-          console.log(e.target.value);
           setUserInput(e.target.value);
         }}
       />

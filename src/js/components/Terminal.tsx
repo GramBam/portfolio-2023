@@ -1,12 +1,6 @@
 import { useEffect, useState } from "react";
 import Nav from "./Nav";
-import {
-  commandBlock,
-  noCommandBlock,
-  pathBlock,
-  promptBlock,
-  serverBlock,
-} from "../utils/textBlocks";
+import { blocks as outputBlocks } from "../utils/textBlocks";
 import TerminalInput from "./TerminalInput";
 import { commands } from "../utils/commands";
 
@@ -20,11 +14,11 @@ function Terminal() {
 
   useEffect(() => {
     const set = setTimeout(() => {
-      addBlock(serverBlock);
+      addBlock(outputBlocks.server);
       setTimeout(() => {
-        addBlock(commandBlock);
+        addBlock(outputBlocks.command);
         setTimeout(() => {
-          addBlock(pathBlock);
+          addBlock(outputBlocks.path);
           setShowInput(true);
         }, 250);
       }, 1500);
@@ -34,17 +28,25 @@ function Terminal() {
   }, []);
 
   const onSubmit = (input: string) => {
-    const command = commands.find((command) => command === input);
-    addBlock(promptBlock(!!command, input));
-    addBlock(noCommandBlock(input));
+    const command = commands.find((command) => command.input === input);
+    addBlock(outputBlocks.prompt(!!command, input));
+    if (command?.input === "clear") {
+      setBlocks([outputBlocks.path]);
+    } else {
+      command?.output
+        ? addBlock(command.output)
+        : addBlock(outputBlocks.noCommand(input));
+    }
   };
 
   return (
-    <div className="terminal normal">
+    <div className="terminal">
       <Nav />
       <div className="prompt-container">
         {blocks.map((block) => block)}
-        {showInput && <TerminalInput submitCallback={onSubmit} />}
+        {showInput && (
+          <TerminalInput submitCallback={onSubmit} blocks={blocks} />
+        )}
       </div>
     </div>
   );
