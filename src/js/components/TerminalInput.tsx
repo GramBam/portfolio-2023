@@ -12,9 +12,14 @@ function TerminalInput({
   const [userInput, setUserInput] = useState<string>("");
   const ref = useRef<HTMLInputElement>(null);
 
+  const formatInput = (input: string): string => {
+    return input.toLocaleLowerCase().trim();
+  };
+
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && !!userInput) {
-      submitCallback(userInput);
+      const formatted = formatInput(userInput);
+      submitCallback(formatted);
       setUserInput("");
     }
   };

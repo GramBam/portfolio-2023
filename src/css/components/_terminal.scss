@@ -6,10 +6,9 @@
   border: 1px solid $grey;
   background-color: $terminal-bg;
   cursor: text;
-  width: 100%;
+  width: 90%;
   max-width: 800px;
   height: 500px;
-  margin: 20px;
 
   .prompt-container {
     display: flex;
@@ -74,7 +73,5 @@
   }
 
   @media only screen and (max-width: 600px) {
-    width: unset;
-    min-width: 365px;
   }
 }

@@ -83,6 +83,11 @@ const all = (
       <span>View my tech stack</span>
     </p>
     <p className="code">
+      resume
+      <br />
+      <span>Link to my resume</span>
+    </p>
+    <p className="code">
       clear
       <br />
       <span>Clear the terminal</span>
