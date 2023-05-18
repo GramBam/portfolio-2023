@@ -34,6 +34,11 @@ a {
   color: $white;
 }
 
+.hidden-msg {
+  position: absolute;
+  z-index: -1;
+}
+
 #root {
   display: flex;
   flex-direction: column;

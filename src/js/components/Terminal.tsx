@@ -7,6 +7,7 @@ import { commands } from "../utils/commands";
 function Terminal() {
   const [blocks, setBlocks] = useState<JSX.Element[]>([<p>Welcome</p>]);
   const [showInput, setShowInput] = useState<boolean>(false);
+  const [showTerminal, setShowTerminal] = useState<boolean>(true);
 
   const addBlock = (newBlock: JSX.Element) => {
     setBlocks((prev) => [...prev, newBlock]);
@@ -39,9 +40,9 @@ function Terminal() {
     }
   };
 
-  return (
+  return showTerminal ? (
     <div className="terminal">
-      <Nav />
+      <Nav hideTerminal={() => setShowTerminal(false)} />
       <div className="prompt-container">
         {blocks.map((block) => cloneElement(block, { key: Math.random() }))}
         {showInput && (
@@ -49,6 +50,8 @@ function Terminal() {
         )}
       </div>
     </div>
+  ) : (
+    <></>
   );
 }
 

@@ -27,7 +27,7 @@ export const path = (
   <p className="path">
     # user
     <span> in</span>
-    <span> ~/GramBam</span>
+    <span> ~/gMoss</span>
   </p>
 );
 

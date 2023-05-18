@@ -1,9 +1,9 @@
 import NavButton, { NavButtonProps } from "./NavButton";
 import { FaGithub } from "react-icons/fa";
 
-function Nav() {
+function Nav({ hideTerminal }: { hideTerminal: () => void }) {
   const navButtons: NavButtonProps[] = [
-    { color: "red", onClick: () => {} },
+    { color: "red", onClick: () => hideTerminal() },
     { color: "yellow", onClick: () => {} },
     { color: "green", onClick: () => {} },
   ];
