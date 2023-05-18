@@ -1,6 +1,7 @@
 import { ChangeEvent, KeyboardEvent, useState, useRef, useEffect } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import useOutsideClick from "../hooks/useOutsideClick";
+import { isMobileDevice } from "../utils/isMobileDevice";
 
 function TerminalInput({
   submitCallback,
@@ -11,6 +12,7 @@ function TerminalInput({
 }) {
   const [userInput, setUserInput] = useState<string>("");
   const ref = useRef<HTMLInputElement>(null);
+  const isMobile = isMobileDevice();
 
   const formatInput = (input: string): string => {
     return input.toLocaleLowerCase().trim();
@@ -21,6 +23,7 @@ function TerminalInput({
       const formatted = formatInput(userInput);
       submitCallback(formatted);
       setUserInput("");
+      isMobile && ref.current?.blur();
     }
   };
 
