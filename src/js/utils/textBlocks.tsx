@@ -118,7 +118,7 @@ const stack = (
 const resume = (
   <p>
     <a
-      href="https://gmoss-resume.s3.amazonaws.com/Graham+Moss+Resume.pdf"
+      href="https://gmoss-resume.s3.amazonaws.com/Graham+Moss+Resume+2023.pdf"
       target="_blank"
     >
       Graham Moss Resume - Hosted on AWS
