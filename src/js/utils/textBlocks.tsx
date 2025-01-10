@@ -1,8 +1,8 @@
 import { FaChevronRight, FaGithub, FaLinkedin } from "react-icons/fa";
 
-export const server = <p>Starting the Server...</p>;
+const server = <p>Starting the server...</p>;
 
-export const command = (
+const command = (
   <>
     <p>You can run several commands:</p>
     <p className="code">
@@ -16,6 +16,11 @@ export const command = (
       <span>View social links</span>
     </p>
     <p className="code">
+      resume
+      <br />
+      <span>Link to my resume</span>
+    </p>
+    <p className="code">
       all
       <br />
       <span>View all commands</span>
@@ -23,7 +28,7 @@ export const command = (
   </>
 );
 
-export const path = (
+const path = (
   <p className="path">
     # user
     <span> in</span>
@@ -31,16 +36,16 @@ export const path = (
   </p>
 );
 
-export const noCommand = (input: string) => <p>command not found: {input}</p>;
+const noCommand = (input: string) => <p>command not found: {input}</p>;
 
-export const prompt = (success: boolean, input: string) => (
+const prompt = (success: boolean, input: string) => (
   <div className={`prompt ${success ? "success" : "failure"}`}>
     <FaChevronRight />
     <h2>{input}</h2>
   </div>
 );
 
-export const about = (
+const about = (
   <p>
     Certified Firefighter and Full-Stack Developer with 6+ years of experience
     developing software and web applications front to back. Currently
@@ -48,7 +53,7 @@ export const about = (
   </p>
 );
 
-export const social = (
+const social = (
   <>
     <p className="social-link">
       <a href="https://github.com/GramBam" target="_blank">
@@ -118,7 +123,7 @@ const stack = (
 const resume = (
   <p>
     <a
-      href="https://gmoss-resume.s3.amazonaws.com/Graham+Moss+Resume.pdf"
+      href="https://gmoss-resume.s3.us-east-1.amazonaws.com/Graham+Moss+Resume+2025.pdf"
       target="_blank"
     >
       Graham Moss Resume - Hosted on AWS
